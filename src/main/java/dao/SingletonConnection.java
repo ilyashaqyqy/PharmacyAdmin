@@ -21,7 +21,7 @@ public class SingletonConnection {
 	            Class.forName("org.postgresql.Driver");
 
 	            connection =DriverManager.getConnection(url,username,password);
-
+                   
 
 	        } catch (Exception e) {
 	            // TODO Auto-generated catch block
@@ -34,4 +34,10 @@ public class SingletonConnection {
 	
 
 	    }
+
+
+		public static Connection getConnection() {
+			// TODO Auto-generated method stub
+			return connection;
+		}
 }
