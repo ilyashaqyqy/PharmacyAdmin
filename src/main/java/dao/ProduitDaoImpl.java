@@ -18,6 +18,12 @@ public class ProduitDaoImpl implements IProduitDao{
 	    Connection connection = SingletonConnection.getConnection();
 	    
 	    try {
+	        // Check if the product already exists
+	        if (isProductExists(p)) {
+	            System.out.println("Produit avec des détails similaires existe déjà. Insertion ignorée.");
+	            return p;
+	        }
+	        
 	        PreparedStatement ps = connection.prepareStatement(
 	            "INSERT INTO Produit (nom_article, quantite, prix, description) VALUES (?, ?, ?, ?)"
 	        );
@@ -26,7 +32,7 @@ public class ProduitDaoImpl implements IProduitDao{
 	        ps.setFloat(3, p.getPrix());
 	        ps.setString(4, p.getDiscription());  
 	        ps.executeUpdate();
-	        ps.close(); // Close the first PreparedStatement
+	        ps.close(); // Close the PreparedStatement
 	        
 	        // Retrieve the generated ID
 	        PreparedStatement ps2 = connection.prepareStatement("SELECT MAX(id_produit) AS max_id FROM Produit");
@@ -44,6 +50,24 @@ public class ProduitDaoImpl implements IProduitDao{
 	    
 	    return p;
 	}
+
+	private boolean isProductExists(Produit p) throws SQLException {
+	    Connection connection = SingletonConnection.getConnection();
+	    PreparedStatement ps = connection.prepareStatement(
+	        "SELECT COUNT(*) AS count FROM Produit WHERE nom_article = ? AND quantite = ? AND prix = ? AND description = ?"
+	    );
+	    ps.setString(1, p.getNom_article());
+	    ps.setInt(2, p.getQuantite());
+	    ps.setFloat(3, p.getPrix());
+	    ps.setString(4, p.getDiscription());  
+	    ResultSet rs = ps.executeQuery();
+	    if (rs.next()) {
+	        int count = rs.getInt("count");
+	        return count > 0;
+	    }
+	    return false;
+	}
+
 
 	
 	
