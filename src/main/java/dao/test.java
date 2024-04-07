@@ -7,10 +7,12 @@ public class test {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		ProduitDaoImpl produitDaoImpl = new ProduitDaoImpl() ;
-		Produit p1 = new   Produit("doli", 10, 50, "vvvv") ;
+		//Produit p3 = new   Produit("vitamin c", 90, 500, "vittaaamiinn") ;
+		//Produit p4 = new   Produit("pitadin", 40, 70, "pitaddiinnn") ;
 		
-		produitDaoImpl.save(p1);
-		
+
+		//produitDaoImpl.save(p3);
+		//produitDaoImpl.save(p4);
 	}
 
 }

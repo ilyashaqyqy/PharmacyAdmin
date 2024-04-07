@@ -15,7 +15,7 @@ public class SingletonConnection {
 	    static {
 	        String url="jdbc:postgresql://localhost:5432/PharmacyAdmin";
 	        String username="postgres";
-	        String password="azer1234";
+	        String password="azer123";
 
 	        try {
 	            Class.forName("org.postgresql.Driver");
