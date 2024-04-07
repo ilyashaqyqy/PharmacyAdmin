@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import metier.entities.Produit;
@@ -77,9 +78,37 @@ public class ProduitDaoImpl implements IProduitDao{
 	
 
 	@Override
-	public List<Produit> produit(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Produit> produitsParMc(String mc) {
+		Connection connection = SingletonConnection.getConnection();
+		List<Produit> produits = new ArrayList <Produit> ();
+		
+	    try {
+			PreparedStatement ps = connection.prepareStatement(
+			        "SELECT *  FROM Produit WHERE nom_article LIKE ?"
+			    );
+			ps.setString(1,mc);
+			ResultSet rs = ps.executeQuery();
+			while(rs.next()) {
+				Produit p = new Produit();
+				p.setId_produit(rs.getLong("Id_produit"));
+				p.setNom_article(rs.getString("Nom_article"));
+				p.setQuantite(rs.getInt("Quantite"));
+				p.setPrix(rs.getFloat("Prix"));
+				p.setDiscription(rs.getString("description"));
+				
+				produits.add(p);
+				
+				
+			}
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		return produits;
 	}
 
 	@Override

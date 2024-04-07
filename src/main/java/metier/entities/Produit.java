@@ -53,6 +53,13 @@ public class Produit implements Serializable{
 	public void setDiscription(String discription) {
 		this.discription = discription;
 	}
+	@Override
+	public String toString() {
+		return "Produit [id_produit=" + id_produit + ", nom_article=" + nom_article + ", quantite=" + quantite
+				+ ", prix=" + prix + ", discription=" + discription + "]";
+	}
+	
+	
 	
 }
 
