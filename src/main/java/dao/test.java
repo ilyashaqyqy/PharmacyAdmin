@@ -14,21 +14,21 @@ public class test {
 		Produit p3 = new   Produit("vitamin c", 90, 500, "vittaaamiinn") ;
 		Produit p4 = new   Produit("pitadin", 40, 70, "pitaddiinnn") ;
 		Produit p5 = new   Produit("parasitamol", 40, 70, "paracitamol") ;
-		Produit p6 = new   Produit("parasl", 40, 70, "paracitamol") ;
+		Produit p7 = new   Produit("peri", 490, 70, "parI") ;
 		
 
-//		produitDaoImpl.save(p3);
+		produitDaoImpl.save(p7);
 //		produitDaoImpl.save(p4);
 //		produitDaoImpl.save(p6);
 //		System.out.println(p6);
 		
 	
-        List<Produit> prods = produitDaoImpl.produitsParMc("doli");
+        //List<Produit> prods = produitDaoImpl.produitsParMc("doli");
         
         // Display the found products
-        for (Produit produit : prods) {
-            System.out.println(produit);
-        }
+//        for (Produit produit : prods) {
+//            System.out.println(produit);
+//        }
 		
 	}
 
