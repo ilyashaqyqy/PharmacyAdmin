@@ -2,6 +2,8 @@ package dao;
 
 import java.util.List;
 
+import org.apache.jasper.tagplugins.jstl.core.ForEach;
+
 import metier.entities.Produit;
 
 public class test {
@@ -15,10 +17,12 @@ public class test {
 		Produit p6 = new   Produit("parasl", 40, 70, "paracitamol") ;
 		
 
-		//produitDaoImpl.save(p3);
-		//produitDaoImpl.save(p4);
-		//produitDaoImpl.save(p6);
-		//System.out.println(p6);
+//		produitDaoImpl.save(p3);
+//		produitDaoImpl.save(p4);
+//		produitDaoImpl.save(p6);
+//		System.out.println(p6);
+		
+	
         List<Produit> prods = produitDaoImpl.produitsParMc("doli");
         
         // Display the found products
@@ -29,3 +33,6 @@ public class test {
 	}
 
 }
+
+
+
