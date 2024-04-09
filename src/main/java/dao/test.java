@@ -15,9 +15,9 @@ public class test {
 		Produit p4 = new   Produit("pitadin", 40, 70, "pitaddiinnn") ;
 		Produit p5 = new   Produit("parasitamol", 40, 70, "paracitamol") ;
 		Produit p7 = new   Produit("peri", 490, 70, "parI") ;
-		
+		Produit p8 = new   Produit("test", 490, 70, "parI") ;
 
-		produitDaoImpl.save(p7);
+		produitDaoImpl.save(p8);
 //		produitDaoImpl.save(p4);
 //		produitDaoImpl.save(p6);
 //		System.out.println(p6);
