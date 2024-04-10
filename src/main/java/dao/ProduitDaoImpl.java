@@ -26,24 +26,25 @@ public class ProduitDaoImpl implements IProduitDao{
 	        }
 	        
 	        PreparedStatement ps = connection.prepareStatement(
-	            "INSERT INTO Produit (nom_article, quantite, prix, description) VALUES (?, ?, ?, ?)"
+	            "INSERT INTO Produit (nom_article, quantite, prix, description) VALUES (?, ?, ?, ?)",
+	            PreparedStatement.RETURN_GENERATED_KEYS
 	        );
 	        ps.setString(1, p.getNom_article());
 	        ps.setInt(2, p.getQuantite());
 	        ps.setFloat(3, p.getPrix());
 	        ps.setString(4, p.getDiscription());  
 	        ps.executeUpdate();
-	        ps.close(); // Close the PreparedStatement
 	        
 	        // Retrieve the generated ID
-	        PreparedStatement ps2 = connection.prepareStatement("SELECT MAX(id_produit) AS max_id FROM Produit");
-	        ResultSet rs = ps2.executeQuery();
-	        if (rs.next()) {
-	            long generatedId = rs.getLong("max_id");
+	        ResultSet generatedKeys = ps.getGeneratedKeys();
+	        if (generatedKeys.next()) {
+	            long generatedId = generatedKeys.getLong(1);
 	            p.setId_produit(generatedId); // Update the Produit object with the generated ID
+	        } else {
+	            throw new SQLException("Failed to retrieve generated ID for Produit.");
 	        }
-	        rs.close();
-	        ps2.close(); // Close the second PreparedStatement
+	        
+	        ps.close(); // Close the PreparedStatement
 	        
 	    } catch (SQLException e) {
 	        e.printStackTrace();
@@ -51,6 +52,7 @@ public class ProduitDaoImpl implements IProduitDao{
 	    
 	    return p;
 	}
+
 
 	private boolean isProductExists(Produit p) throws SQLException {
 	    Connection connection = SingletonConnection.getConnection();
@@ -125,8 +127,13 @@ public class ProduitDaoImpl implements IProduitDao{
 
 	@Override
 	public void deleteProduit(Long id) {
-		// TODO Auto-generated method stub
-		
+	    try (Connection connection = SingletonConnection.getConnection();
+	         PreparedStatement ps = connection.prepareStatement("DELETE FROM Produit WHERE id_produit=?")) {
+	        ps.setLong(1, id);
+	        ps.executeUpdate();
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    }
 	}
 
 }

@@ -50,7 +50,7 @@ public class ControleurServlet extends HttpServlet{
 		
 		
 		else if (path.equals("/Saisie.php")) {
-			
+			/* request.setAttribute("produit", new Produit()); */
 			request.getRequestDispatcher("SaisieProduits.jsp").forward(request,response);
 		}
 		
@@ -67,7 +67,16 @@ public class ControleurServlet extends HttpServlet{
 			
 		}
 		
-		else {
+		else if (path.equals("/Supprime.php")) {
+		 Long id=Long.parseLong(request.getParameter("id_produit"));
+		        metier.deleteProduit(id);
+		    
+		    // Redirection after deletion
+		    response.sendRedirect("/chercher.php?motCle=");
+		
+		    
+		
+		} else {
 			response.sendError(Response.SC_NOT_FOUND);
 			
 		}
