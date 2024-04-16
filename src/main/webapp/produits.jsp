@@ -13,12 +13,12 @@
 <%@ include file="header.jsp"%>
 <div class="container col-md-10 col-md-offset-1" >
     <div class="panel panel-primary" style="border: none;">
-        <div class="panel-heading" style="background-color: #7BAFA9; ">Recherche des produits</div>
+        <div class="panel-heading" style="background-color: #5D8F7B; ">Recherche des produits</div>
         <div class="panel-body">
             <form action="chercher.php" method="get">
 <!--                 <label>Recherche :</label> -->
                 <input type="text" name="motCle"/>
-                <button type="submit" class="btn btn-primary" style="background-color: #7BAFA9; padding: 3px 7px;">Chercher</button>
+                <button type="submit" class="btn btn-primary" style="background-color: #5D8F7B; padding: 3px 7px;">Chercher</button>
             </form>
             <table class="table" style="margin-top:12px;">
                 <thead>
@@ -36,7 +36,7 @@
             <td>${p.prix}</td>
             <td>${p.discription}</td>
                 <td><a href="Edit.php?id=${p.id_produit}"style="color:#86CDB0">Modifier</a></td>
-            <td><a  onclick="return confirm('Etes vous sur?')" href="Supprime.php?id=${p.id_produit}" style="color:#86CDB0">Supprimer</a></td>
+            <td><a  onclick="return confirm('Etes vous sur?')" href="Supprime.php?id_produit=${p.id_produit}" style="color:#86CDB0">Supprimer</a></td>
         
         </tr>
  

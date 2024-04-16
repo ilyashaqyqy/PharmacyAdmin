@@ -12,13 +12,13 @@
 <%@ include file="header.jsp"%>
 <div class="container col-md-8 col-md-offset-2 col-xs-12" >
     <div class="panel panel-primary" style="border: none;box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
-        <div class="panel-heading" style="background-color: #7BAFA9;">Confirmation</div>
+        <div class="panel-heading" style="background-color: #5D8F7B;">Confirmation</div>
         <div class="panel-body">
           
           <div class="form-group">
-          <label>ID:</label>
-          <label>${produit.id_produit}</label>
-          </div>
+<!--           <label>ID:</label> -->
+<%--           <label>${produit.id_produit}</label> --%>
+<!--           </div> -->
           
           <div class="form-group">
           <label>Article:</label>

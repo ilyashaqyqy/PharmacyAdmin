@@ -15,7 +15,7 @@
 <%@ include file="header.jsp"%>
 <div class="container col-md-8 col-md-offset-2 col-xs-12" >
     <div class="panel panel-primary" style="border: none; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
-        <div class="panel-heading" style="background-color: #7BAFA9;">Saisie d'un produit</div>
+        <div class="panel-heading" style="background-color: #5D8F7B;">Saisie d'un produit</div>
         <div class="panel-body">
            <form action="SaveProduit.php" method="post">
            
@@ -47,7 +47,7 @@
            
            
            <div>
-           <button type="submit" class="btn btn-primary" style="background-color: #7BAFA9; padding: 3px 7px;">Enregistrer</button>
+           <button type="submit" class="btn btn-primary" style="background-color: #5D8F7B; padding: 3px 7px;">Enregistrer</button>
            </div>
           
            </form> 

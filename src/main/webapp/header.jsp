@@ -9,10 +9,10 @@
 
 
 
-<div class="navbar navbar-default"style="background-color: #7BAFA9;">
+<div class="navbar navbar-default"style="background-color: #5D8F7B;">
 <ul class="nav navbar-nav">
 <li><a href="index.php" style="color:#FFFFFF;">Accueil</a> </li>
-<li><a href="Saisie.php" style="color:#FFFFFF;">Saisie</a> </li>
+<li><a href="Saisie.php" style="color:#FFFFFF;">Saisie</a></li>
 
 
 </ul>

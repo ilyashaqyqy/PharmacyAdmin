@@ -39,12 +39,12 @@ public class ProduitDaoImpl implements IProduitDao{
 	        ResultSet generatedKeys = ps.getGeneratedKeys();
 	        if (generatedKeys.next()) {
 	            long generatedId = generatedKeys.getLong(1);
-	            p.setId_produit(generatedId); // Update the Produit object with the generated ID
+	            p.setId_produit(generatedId); 
 	        } else {
 	            throw new SQLException("Failed to retrieve generated ID for Produit.");
 	        }
 	        
-	        ps.close(); // Close the PreparedStatement
+	        ps.close(); 
 	        
 	    } catch (SQLException e) {
 	        e.printStackTrace();
@@ -131,6 +131,7 @@ public class ProduitDaoImpl implements IProduitDao{
 	         PreparedStatement ps = connection.prepareStatement("DELETE FROM Produit WHERE id_produit=?")) {
 	        ps.setLong(1, id);
 	        ps.executeUpdate();
+	        ps.close();
 	    } catch (SQLException e) {
 	        e.printStackTrace();
 	    }

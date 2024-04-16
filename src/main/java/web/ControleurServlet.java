@@ -2,6 +2,7 @@ package web;
 
 import java.io.IOException;
 
+
 import java.util.List;
 
 import org.apache.catalina.connector.Response;
@@ -18,6 +19,10 @@ import metier.entities.Produit;
 
 public class ControleurServlet extends HttpServlet{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private IProduitDao metier ;
 	
 	@Override
@@ -72,7 +77,7 @@ public class ControleurServlet extends HttpServlet{
 		        metier.deleteProduit(id);
 		    
 		    // Redirection after deletion
-		    response.sendRedirect("/chercher.php?motCle=");
+		    response.sendRedirect("/PharmacyAdmin/chercher.php?motCle=");
 		
 		    
 		
